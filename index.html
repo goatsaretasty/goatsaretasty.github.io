@@ -13,33 +13,41 @@
    HOW TO EDIT
    - All words: search the HTML below and type over them.
    - Colors: the two :root blocks below (light + dark).
+   - Spacing: everything uses the --s-* scale a few lines down.
+     Change the scale, the whole page adjusts together.
    ============================================================ */
 
 :root {
   --bg: #F4FAF0;
   --surface: #FFFFFF;
   --ink: #034732;          /* Deep Forest ink */
-  --faint: #46685A;
-  --line: #D3E5CE;
-  --g1: #008148;           /* Sea Green */
-  --g2: #6B9A2A;           /* Yellow Green, deepened for legibility on light */
+  --faint: #3E5B4F;        /* darkened slightly from the original for cleaner contrast */
+  --line: #C7DDC0;         /* darkened slightly so section rules actually read as rules */
+  --g1: #007A43;
+  --g2: #5C8A22;
   --chip-bg: #E4F2DC;
-  --glow: rgba(0, 129, 72, 0.14);
-  --plum: #3C1642;         /* Amethyst counterpoint: kicker, heading marks, tags, selection */
+  --plum: #3C1642;
   --plum-bg: #F0E6F5;
   --sel-text: #B2FFA9;
+
+  /* spacing scale — every margin/padding/gap on the page pulls from this */
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.75rem;
+  --s-4: 2.75rem;
+  --s-5: 4rem;
+  --s-6: 6rem;
 }
 [data-theme="dark"] {
-  --bg: #150A18;           /* near-black with a plum tint — purple as atmosphere */
+  --bg: #150A18;
   --surface: #221228;
   --ink: #EFF6EA;
-  --faint: #B9A8C2;        /* lavender-leaning secondary text */
-  --line: #35213C;
-  --g1: #B2FFA9;           /* Light Green */
-  --g2: #BED558;           /* Yellow Green */
+  --faint: #C3B4CB;
+  --line: #402A48;
+  --g1: #B2FFA9;
+  --g2: #BED558;
   --chip-bg: #22301F;
-  --glow: rgba(178, 255, 169, 0.10);
-  --plum: #D9B8E8;         /* counterpoint lifts to lavender for contrast */
+  --plum: #D9B8E8;
   --plum-bg: #2E1734;
   --sel-text: #2A1130;
 }
@@ -54,11 +62,13 @@ body {
   font-size: 1.0625rem;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  transition: background 0.4s ease, color 0.4s ease;
 }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--g1); outline-offset: 3px; border-radius: 3px; }
 .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.5rem; }
+
+/* gradient text is reserved for exactly one place: the hero headline.
+   used anywhere else it stops meaning anything, so it's used nowhere else. */
 .grad-text {
   background: linear-gradient(100deg, var(--g1), var(--g2));
   -webkit-background-clip: text;
@@ -69,47 +79,29 @@ a { color: inherit; }
 /* ---------- header ---------- */
 header {
   position: sticky; top: 0; z-index: 10;
-  background: color-mix(in srgb, var(--bg) 85%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: var(--bg);
   border-bottom: 1px solid var(--line);
 }
 .topline {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 0.85rem 0;
+  padding: var(--s-1) 0;
   font-weight: 700; font-size: 0.95rem;
 }
-.topline nav { display: flex; align-items: center; gap: 1.25rem; }
+.topline nav { display: flex; align-items: center; gap: var(--s-3); }
 .topline nav a { text-decoration: none; }
 .topline nav a:hover { color: var(--g1); }
 #theme-btn {
   background: none; border: 1px solid var(--line); color: var(--ink);
   border-radius: 99px; width: 2.3rem; height: 2.3rem;
   font-size: 1rem; cursor: pointer; line-height: 1;
-  transition: border-color 0.2s ease, transform 0.2s ease;
 }
-#theme-btn:hover { border-color: var(--g1); transform: rotate(15deg); }
+#theme-btn:hover { border-color: var(--g1); }
 
 /* ---------- hero ---------- */
-.hero {
-  position: relative;
-  padding: 6rem 0 5rem;
-  overflow: hidden;
-}
-.hero::before {
-  content: "";
-  position: absolute; inset: -40% -20% auto;
-  height: 130%;
-  background:
-    radial-gradient(38rem 22rem at 20% 20%, var(--glow), transparent 70%),
-    radial-gradient(30rem 20rem at 85% 60%, var(--glow), transparent 70%);
-  pointer-events: none;
-}
-.hero .wrap { position: relative; }
+.hero { padding: var(--s-6) 0 var(--s-5); border-bottom: 1px solid var(--line); }
 .hero .kicker {
   font-weight: 700; color: var(--plum); font-size: 1rem;
-  margin-bottom: 1rem;
-  opacity: 0; animation: rise 0.7s ease 0.05s forwards;
+  margin-bottom: var(--s-2);
 }
 .hero h1 {
   font-weight: 900;
@@ -118,67 +110,54 @@ header {
   letter-spacing: -0.02em;
   max-width: 22ch;
 }
-.hero h1 .line { display: block; opacity: 0; transform: translateY(0.4em); }
-.hero h1 .line1 { animation: rise 0.7s ease 0.2s forwards; }
-.hero h1 .line2 { animation: rise 0.7s ease 0.4s forwards; }
-@keyframes rise { to { opacity: 1; transform: none; } }
 .hero .standfirst {
-  margin-top: 1.75rem; max-width: 35rem;
+  margin-top: var(--s-3); max-width: 35rem;
   font-size: 1.15rem; color: var(--faint);
-  opacity: 0; animation: rise 0.7s ease 0.7s forwards;
 }
 .hero .facts {
-  margin-top: 2.25rem; display: flex; flex-wrap: wrap; gap: 0.6rem 2rem;
+  margin-top: var(--s-3); display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-3);
   font-size: 0.95rem; font-weight: 700;
-  opacity: 0; animation: rise 0.7s ease 0.85s forwards;
 }
-.hero .facts span {
-  border-bottom: 2px solid;
-  border-image: linear-gradient(90deg, var(--g1), var(--g2)) 1;
-  padding-bottom: 2px;
-}
+.hero .facts span { border-bottom: 2px solid var(--g1); padding-bottom: 2px; }
 
 /* ---------- sections ---------- */
-/* section.wrap must out-rank .wrap, whose padding was cancelling section padding */
-section { border-top: 1px solid var(--line); }
-section.wrap { padding: 2.75rem 1.5rem 5.25rem; }
-h2 { font-size: 1.05rem; font-weight: 900; margin-bottom: 1.75rem; }
-h2::after { content: "."; color: var(--plum); -webkit-text-fill-color: var(--plum); }
+section { border-bottom: 1px solid var(--line); }
+section.wrap { padding: var(--s-4) 1.5rem; }
+h2 { font-size: 1.05rem; font-weight: 900; margin-bottom: var(--s-3); }
+h2::after { content: "."; color: var(--plum); }
 
-/* scroll reveal */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
 .reveal.in { opacity: 1; transform: none; }
 
 /* ---------- strands ---------- */
-.strands { display: grid; gap: 2.25rem; }
-.strand h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.35rem; }
+.strands { display: grid; gap: var(--s-4); }
+.strand h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: var(--s-1); }
 .strand p { color: var(--faint); max-width: 40rem; }
 
 /* ---------- timeline ---------- */
 .timeline { position: relative; padding-left: 1.6rem; }
 .timeline::before {
   content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px;
-  width: 2px;
-  background: linear-gradient(180deg, var(--g1), var(--g2));
-  border-radius: 2px;
-  transform-origin: top;
-  transform: scaleY(var(--draw, 0));
+  width: 2px; background: var(--line);
+}
+.timeline::after {
+  content: ""; position: absolute; left: 5px; top: 6px; bottom: 6px;
+  width: 2px; background: var(--g1);
+  transform-origin: top; transform: scaleY(var(--draw, 0));
   transition: transform 0.15s linear;
 }
-.era { position: relative; padding: 0 0 2.75rem; }
-.era:last-child { padding-bottom: 0.5rem; }
+.era { position: relative; padding-bottom: var(--s-4); }
+.era:last-child { padding-bottom: var(--s-1); }
 .era::before {
   content: ""; position: absolute; left: -1.6rem; top: 8px;
   width: 12px; height: 12px; border-radius: 50%;
-  background: var(--bg);
-  border: 3px solid var(--g1);
-  transition: background 0.4s ease;
+  background: var(--bg); border: 3px solid var(--g1);
 }
-.era .years { font-weight: 900; font-size: 0.95rem; }
-.era h3 { font-size: 1.15rem; font-weight: 800; margin-top: 0.15rem; line-height: 1.3; }
+.era .years { font-weight: 900; font-size: 0.95rem; color: var(--g1); }
+.era h3 { font-size: 1.15rem; font-weight: 800; margin-top: var(--s-1); line-height: 1.3; }
 .era .org { font-weight: 400; color: var(--faint); }
-.era p.what { margin-top: 0.6rem; max-width: 38rem; }
-.chips { margin-top: 0.85rem; display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.era p.what { margin-top: var(--s-1); max-width: 38rem; }
+.chips { margin-top: var(--s-2); display: flex; flex-wrap: wrap; gap: 0.45rem; }
 .chip {
   font-size: 0.82rem; font-weight: 700;
   background: var(--chip-bg);
@@ -186,68 +165,49 @@ h2::after { content: "."; color: var(--plum); -webkit-text-fill-color: var(--plu
 }
 
 /* ---------- case study ---------- */
-.case { border-top: 3px solid var(--g1); padding-top: 1.4rem; }
+.case { border-top: 3px solid var(--g1); padding-top: var(--s-2); }
 .case h3 { font-size: 1.2rem; font-weight: 800; line-height: 1.3; }
-.case .role { color: var(--faint); font-size: 0.95rem; margin-top: 0.15rem; }
-.case h4 { font-size: 0.95rem; font-weight: 800; margin-top: 1.4rem; }
-.case p { color: var(--faint); margin-top: 0.35rem; max-width: 40rem; }
-.case .chips { margin-top: 1.4rem; }
+.case .role { color: var(--faint); font-size: 0.95rem; margin-top: var(--s-1); }
+.case h4 { font-size: 0.95rem; font-weight: 800; margin-top: var(--s-3); }
+.case p { color: var(--faint); margin-top: var(--s-1); max-width: 40rem; }
+.case .chips { margin-top: var(--s-3); }
 
 /* ---------- projects ---------- */
-.projects { display: grid; gap: 2.75rem; }
-.proj { border-top: 3px solid var(--g1); padding-top: 1.1rem; }
-.proj .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.9rem; }
+.projects { display: grid; gap: var(--s-4); }
+.proj { border-top: 3px solid var(--g1); padding-top: var(--s-2); }
+.proj .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem var(--s-2); }
 .proj h3 { font-size: 1.15rem; font-weight: 800; }
 .proj .status {
   font-size: 0.8rem; font-weight: 700; color: var(--plum);
   background: var(--plum-bg); padding: 0.15rem 0.65rem; border-radius: 99px;
 }
-.proj p { color: var(--faint); margin-top: 0.5rem; max-width: 40rem; }
+.proj p { color: var(--faint); margin-top: var(--s-1); max-width: 40rem; }
 
-/* ---------- pattern band (the one loud thing) ----------
-   Adire-inspired: "wave of life" lines over a row of cowrie dots.
-   The gradient supplies the color; the SVG mask supplies the motif,
-   so it recolors itself in light and dark mode. */
-.band {
-  height: 28px;
-  background: linear-gradient(90deg, var(--g1), var(--plum), var(--g2));
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='28'%3E%3Cpath d='M0 8 Q7.5 2 15 8 T30 8 T45 8 T60 8' fill='none' stroke='%23000' stroke-width='2.5'/%3E%3Cpath d='M0 16 Q7.5 10 15 16 T30 16 T45 16 T60 16' fill='none' stroke='%23000' stroke-width='2.5'/%3E%3Ccircle cx='7.5' cy='23.5' r='2'/%3E%3Ccircle cx='22.5' cy='23.5' r='2'/%3E%3Ccircle cx='37.5' cy='23.5' r='2'/%3E%3Ccircle cx='52.5' cy='23.5' r='2'/%3E%3C/svg%3E") repeat-x center / auto 100%;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='28'%3E%3Cpath d='M0 8 Q7.5 2 15 8 T30 8 T45 8 T60 8' fill='none' stroke='%23000' stroke-width='2.5'/%3E%3Cpath d='M0 16 Q7.5 10 15 16 T30 16 T45 16 T60 16' fill='none' stroke='%23000' stroke-width='2.5'/%3E%3Ccircle cx='7.5' cy='23.5' r='2'/%3E%3Ccircle cx='22.5' cy='23.5' r='2'/%3E%3Ccircle cx='37.5' cy='23.5' r='2'/%3E%3Ccircle cx='52.5' cy='23.5' r='2'/%3E%3C/svg%3E") repeat-x center / auto 100%;
-}
-
-/* ---------- how I work ---------- */
-.creed { display: grid; gap: 1.75rem; }
+/* ---------- how I work / now ---------- */
+.creed { display: grid; gap: var(--s-3); }
 .creed h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.3rem; }
 .creed p { color: var(--faint); max-width: 38rem; }
 
 /* ---------- contact ---------- */
 .contact p { max-width: 36rem; }
 .contact .cta {
-  display: inline-block; margin-top: 1.5rem;
-  background: linear-gradient(100deg, var(--g1), var(--g2));
-  color: #fff;
+  display: inline-block; margin-top: var(--s-3);
+  background: var(--g1);
+  color: var(--bg);
   font-weight: 800; text-decoration: none;
   padding: 0.9rem 1.7rem; border-radius: 8px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.contact .cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--glow); }
 [data-theme="dark"] .contact .cta { color: #150A18; }
 
-footer {
-  border-top: 1px solid var(--line);
-  padding: 1.5rem 0 2.5rem;
-  font-size: 0.9rem; color: var(--faint);
-}
+footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint); }
 
 @media (max-width: 540px) {
-  .hero { padding: 4rem 0 3.5rem; }
+  .hero { padding: var(--s-5) 0 var(--s-4); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero .kicker, .hero h1 .line, .hero .standfirst, .hero .facts { animation: none; opacity: 1; transform: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .timeline::before { transform: scaleY(1); transition: none; }
-  * { transition: none !important; }
+  .timeline::after { transform: scaleY(1); transition: none; }
 }
 </style>
 </head>
@@ -271,10 +231,7 @@ footer {
   <div class="hero">
     <div class="wrap">
       <p class="kicker">Tech enabled, solutions oriented</p>
-      <h1>
-        <span class="line line1">I turn complex systems into</span>
-        <span class="line line2"><span class="grad-text">decisions people can act on.</span></span>
-      </h1>
+      <h1>I turn complex systems into <span class="grad-text">decisions people can act on.</span></h1>
       <p class="standfirst">
         I'm Adesola — a support engineer and technical consultant, seven years in.
         My work sits at the intersection of the system and the stakeholder:
@@ -288,8 +245,6 @@ footer {
       </div>
     </div>
   </div>
-
-  <div class="band" aria-hidden="true"></div>
 
   <section id="work" class="wrap">
     <h2>What I do</h2>
@@ -309,11 +264,10 @@ footer {
         different companies.</p>
       </div>
       <div class="strand reveal">
-        <h3>Results that compound</h3>
-        <p>The work I value most is quiet: automation that returned 30 hours a
-        month to a team, documentation that shortened onboarding by days, a
-        knowledge base that reduced repeat requests 15% in three months. Small
-        systems, steady returns.</p>
+        <h3>Quiet, compounding fixes</h3>
+        <p>Automation that returned 30 hours a month to a team. Documentation
+        that shortened onboarding by days. A knowledge base that cut repeat
+        requests 15% in three months. None of it dramatic at the time.</p>
       </div>
     </div>
   </section>
@@ -326,27 +280,26 @@ footer {
 
       <h4>The situation</h4>
       <p>Every physical item moving through Trove's warehouse needed photographs,
-      metadata, and notes before it could be listed for resale. A first version of
-      a capture app existed when I arrived — but it had aged, and I inherited it
-      without its original author. Photographers were still juggling CaptureOne,
-      camera hardware, item records, and file organization by hand, repeated for
-      every single item at recommerce scale.</p>
+      metadata, and notes before it could be listed for resale. A capture app
+      already existed when I arrived, but it had aged and its original author
+      was gone. Photographers were juggling CaptureOne, camera hardware, item
+      records, and file organization by hand — for every single item, at
+      recommerce scale.</p>
 
       <h4>The approach</h4>
-      <p>Rather than patch around the legacy version, I rebuilt it — owning the
-      redesign and modernization end to end as the sole developer. The new app,
-      written in Python and Tkinter, connected CaptureOne directly to the warehouse
-      cameras through AppleScript. Single keystrokes captured the photo, its
-      metadata, and item notes together, and every shot landed automatically in
-      Google Drive — where a cron job carried files to the retouching service and
-      delivered the finished images to their own Drive location. From shutter
-      press to retouched photo, no one touched a file.</p>
+      <p>I rebuilt it instead of patching around it, owning the redesign solo.
+      The new version, in Python and Tkinter, connected CaptureOne to the
+      warehouse cameras through AppleScript, so a single keystroke captured the
+      photo, its metadata, and item notes together. Every shot landed in Google
+      Drive automatically, and a cron job carried files to the retouching
+      service and back. No one touched a file by hand between shutter and
+      finished photo.</p>
 
       <h4>The result</h4>
-      <p>Photographers kept their hands on the camera instead of the keyboard,
-      metadata stopped going missing between systems, and the pipeline ran itself
-      end to end. It's the pattern I keep coming back to: find the repeated manual
-      work, and build the system that makes it disappear.</p>
+      <p>Photographers stayed on the camera instead of the keyboard, metadata
+      stopped going missing between systems, and the pipeline ran itself. This
+      is the shape of problem I keep gravitating toward: repeated manual work,
+      turned into a system that does it instead.</p>
 
       <div class="chips">
         <span class="chip">Inherited codebase, rebuilt solo</span>
@@ -367,12 +320,13 @@ footer {
           <h3>NYC Taxi pipeline</h3>
           <span class="status">Shipped</span>
         </div>
-        <p>An ELT pipeline built entirely in the cloud — DuckDB reads NYC TLC's
-        public Yellow Taxi trip data straight off its HTTPS source as Parquet,
-        no download step required. dbt models clean and aggregate it into
-        daily and hourly marts, with schema tests enforcing data quality on
-        every run. The whole thing lives in a GitHub Codespace rather than
-        local hardware, with docs published straight from the pipeline. <a href="https://github.com/goatsaretasty/data-eng-workspace">Source</a> ·
+        <p>Picked NYC's public taxi trip data because it's large enough to be
+        real and boring enough that the pipeline could stay the point. DuckDB
+        reads the Parquet files straight off NYC TLC's servers, no download
+        step. dbt turns that into daily and hourly marts with schema tests on
+        every run, in a GitHub Codespace rather than on my own machine. Mostly
+        an exercise in doing ELT properly — right transformation at the right
+        layer, tests before dashboards. <a href="https://github.com/goatsaretasty/data-eng-workspace">Source</a> ·
         <a href="https://goatsaretasty.github.io/data-eng-workspace/">Docs site</a></p>
       </div>
 
@@ -381,11 +335,11 @@ footer {
           <h3>Earworm</h3>
           <span class="status">Prototype</span>
         </div>
-        <p>A music meditation app. You log whatever song is currently living
-        rent-free in your head, write down the musings it stirs up, and over time
-        the app grows timebound word clouds from what your brain keeps humming
-        about — a map of your inner soundtrack, month by month. First prototype
-        wired up with Clerk for auth.</p>
+        <p>Whatever song is stuck in my head at a given moment usually means
+        something, so I built a place to log it — the song, plus whatever it
+        dragged up. Enough entries and it turns into word clouds by month.
+        Auth's wired up with Clerk; the actual point of the app still needs
+        building.</p>
       </div>
 
       <div class="proj reveal">
@@ -393,11 +347,10 @@ footer {
           <h3>HTTP server from scratch</h3>
           <span class="status">Building</span>
         </div>
-        <p>A working HTTP server in plain Python, built through CodeCrafters —
-        parsing raw requests, handling routes and headers, serving responses,
-        no framework doing the thinking. Deliberately boring, which is the
-        point: the best way to trust the layers you usually stand on is to
-        have built one yourself.</p>
+        <p>Parsing raw HTTP requests and writing responses by hand in Python,
+        through CodeCrafters, no framework doing the work for me. Not a novel
+        idea — just a gap between "I use HTTP servers daily" and "I actually
+        understand what one is doing" that had been open too long.</p>
       </div>
 
       <div class="proj reveal">
@@ -408,9 +361,9 @@ footer {
         <p>Hell has a backlog. InfernalOps is the internal tooling: a Python
         task system for the underworld's administrative staff — souls onboarded
         with unique IDs, burdens assigned, updated, reassigned, and on rare
-        appeal removed. Somewhere between <em>The Good Place</em> and the great
-        bureaucratic afterlives of Chinese fiction, where damnation is mostly
-        paperwork and the clerks are behind on tickets.</p>
+        appeal removed. Somewhere between <em>The Good Place</em> and the
+        bureaucratic-afterlife genre in Chinese fiction, where damnation is
+        mostly paperwork and the clerks are behind on tickets.</p>
       </div>
 
       <div class="proj reveal">
@@ -434,7 +387,7 @@ footer {
     <div class="timeline" id="timeline">
 
       <div class="era reveal">
-        <div class="years grad-text">2025 — now</div>
+        <div class="years">2025 — now</div>
         <h3>Application Support Engineer <span class="org">· Cogstate</span></h3>
         <p class="what">I own technical investigations end to end across the distributed
         Azure microservices behind clinical data pipelines — where accuracy has
@@ -449,7 +402,7 @@ footer {
       </div>
 
       <div class="era reveal">
-        <div class="years grad-text">2023 — 2024</div>
+        <div class="years">2023 — 2024</div>
         <h3>Product Support Engineer <span class="org">· Trove Recommerce</span></h3>
         <p class="what">I shipped custom applications in React, Python, and SQL and served
         as the technical escalation point on a platform moving 500,000 transactions
@@ -463,7 +416,7 @@ footer {
       </div>
 
       <div class="era reveal">
-        <div class="years grad-text">2021 — 2023</div>
+        <div class="years">2021 — 2023</div>
         <h3>Technical Consultant <span class="org">· Accenture Federal Services</span></h3>
         <p class="what">I owned SharePoint deployments start to finish — requirements,
         deployment, testing, sign-off — and researched emerging technology for
@@ -477,7 +430,7 @@ footer {
       </div>
 
       <div class="era reveal">
-        <div class="years grad-text">2019 — 2021</div>
+        <div class="years">2019 — 2021</div>
         <h3>Junior Software Engineer <span class="org">· Applied Information Sciences</span></h3>
         <p class="what">Resolved 100+ bugs across Python, JavaScript, and C# applications
         and helped deliver five major projects ahead of schedule. Automating routine
@@ -491,7 +444,7 @@ footer {
       </div>
 
       <div class="era reveal">
-        <div class="years grad-text">2017 — 2019</div>
+        <div class="years">2017 — 2019</div>
         <h3>Technology Consultant <span class="org">· Guidehouse &amp; CGI Group</span></h3>
         <p class="what">I managed the product backlog on a $6 billion federal project,
         built my first RESTful API integrations, and supported 11,000+ users.
@@ -509,21 +462,21 @@ footer {
     <h2>How I work</h2>
     <div class="creed">
       <div class="reveal">
-        <h3>Fix it so it stays fixed</h3>
-        <p>A problem that recurs is a design problem. The second time something
-        breaks, the answer is a tool, a document, or an automation — not more
-        effort.</p>
+        <h3>Fixing things so they stay fixed</h3>
+        <p>If a problem recurs, the actual fix is a tool, a document, or an
+        automation — not doing the same manual thing again, more carefully.</p>
       </div>
       <div class="reveal">
-        <h3>The queue is data</h3>
-        <p>Support tickets, read carefully, describe what should be built next.
-        Three shipped features and a 25% drop in repeat requests started as
-        patterns in a queue.</p>
+        <h3>Reading the queue as data</h3>
+        <p>Support tickets, looked at as a set instead of one at a time, tend
+        to describe what should get built next. Three shipped features and a
+        25% drop in repeat requests started as patterns in a queue.</p>
       </div>
       <div class="reveal">
-        <h3>Finished means understood</h3>
-        <p>An investigation isn't done when the cause is found — it's done when
-        the person making the decision can follow the reasoning and act on it.</p>
+        <h3>Not done until it's understood</h3>
+        <p>Finding the cause isn't the finish line. The person making the
+        decision needs to be able to follow the reasoning and act on it
+        themselves.</p>
       </div>
     </div>
   </section>
@@ -533,21 +486,21 @@ footer {
     <div class="creed">
       <div class="reveal">
         <h3>Owning</h3>
-        <p>The full loop from technical investigation to stakeholder decision —
-        treating "the person across the table understood it" as a deliverable,
-        not a nice-to-have.</p>
+        <p>The full loop from technical investigation to stakeholder decision,
+        not just the investigation half of it.</p>
       </div>
       <div class="reveal">
         <h3>Sharpening</h3>
-        <p>Live demos and discovery conversations — the muscle of walking someone
-        through a system in real time, handling the question you didn't
-        prepare for, and still landing the point.</p>
+        <p>Live demos and discovery conversations — walking someone through a
+        system in real time, handling the question I didn't prepare for, and
+        still landing the point.</p>
       </div>
       <div class="reveal">
         <h3>Curious about</h3>
-        <p>Where solutions engineering meets data — the roles that need someone
-        who can both run the demo and read the query plan — and how AI-assisted
-        workflows change what one engineer can reasonably own.</p>
+        <p>Roles that sit between solutions engineering and data — where being
+        able to both run the demo and read the query plan actually matters —
+        and how AI-assisted workflows change what one engineer can reasonably
+        own.</p>
       </div>
     </div>
   </section>
@@ -564,15 +517,12 @@ footer {
   </section>
 </main>
 
-<div class="band" aria-hidden="true"></div>
-
 <footer>
   <div class="wrap">Adesola Adesina · Built by hand, hosted on GitHub Pages.</div>
 </footer>
 
 <script>
 (function () {
-  /* ----- theme toggle (remembers your choice, follows system by default) ----- */
   var root = document.documentElement;
   var btn = document.getElementById("theme-btn");
   var saved = null;
@@ -587,7 +537,6 @@ footer {
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ----- scroll reveal ----- */
   var revealed = document.querySelectorAll(".reveal");
   if (!reduced && "IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
@@ -600,7 +549,6 @@ footer {
     revealed.forEach(function (el) { el.classList.add("in"); });
   }
 
-  /* ----- timeline line draws itself as you scroll ----- */
   var tl = document.getElementById("timeline");
   function drawLine() {
     var r = tl.getBoundingClientRect();
