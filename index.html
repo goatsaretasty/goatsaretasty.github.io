@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adesola Adesina — Solutions Engineer</title>
-<meta name="description" content="Adesola Adesina bridges deep technical systems and the people who need to trust them — seven years turning root-cause investigations, live demos, and stakeholder conversations into decisions people can act on, across federal, clinical, and commerce platforms.">
+<title>Adesola Adesina — Support &amp; Solutions Engineer</title>
+<meta name="description" content="Adesola Adesina is a support and solutions engineer who builds the tooling, runbooks, and documentation around the support — seven-plus years across federal, clinical, and commerce platforms, in JavaScript, Python, and SQL.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,600;0,800;0,900;1,400&display=swap" rel="stylesheet">
@@ -84,7 +84,7 @@ header {
 }
 .topline {
   display: flex; justify-content: space-between; align-items: center;
-  padding: var(--s-1) 0;
+  padding-block: var(--s-1);
   font-weight: 700; font-size: 0.95rem;
 }
 .topline nav { display: flex; align-items: center; gap: var(--s-3); }
@@ -133,6 +133,11 @@ h2::after { content: "."; color: var(--plum); }
 .strands { display: grid; gap: var(--s-4); }
 .strand h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: var(--s-1); }
 .strand p { color: var(--faint); max-width: 40rem; }
+
+/* ---------- stack ---------- */
+.stack { display: grid; gap: var(--s-3); }
+.stack h3 { font-size: 0.95rem; font-weight: 800; }
+.stack .chips { margin-top: var(--s-1); }
 
 /* ---------- timeline ---------- */
 .timeline { position: relative; padding-left: 1.6rem; }
@@ -204,6 +209,10 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
 @media (max-width: 540px) {
   .hero { padding: var(--s-5) 0 var(--s-4); }
 }
+/* five nav links don't fit a phone; the page is one scroll anyway */
+@media (max-width: 640px) {
+  .topline nav a { display: none; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
@@ -234,9 +243,10 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
       <h1>I turn complex systems into <span class="grad-text">decisions people can act on.</span></h1>
       <p class="standfirst">
         I'm Adesola — a support engineer and technical consultant, seven years in.
-        My work sits at the intersection of the system and the stakeholder:
-        root-causing distributed platforms, then translating what I find into
-        something an engineer, a product lead, or an executive can actually use.
+        I dig into problems across distributed platforms until the cause is
+        clear, explain it to whoever has to act on it, and then write the
+        runbook, knowledge base article, or script that keeps the same ticket
+        from coming back.
       </p>
       <div class="facts">
         <span>Lagos-born, DC-based</span>
@@ -257,17 +267,73 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
         producing that ticket.</p>
       </div>
       <div class="strand reveal">
-        <h3>Findings people can act on</h3>
-        <p>An investigation only matters if the right people understand it. I put
-        results in the language of whoever needs them — engineers, product,
-        leadership. Training I've built has cut escalations 30% at two
-        different companies.</p>
+        <h3>Docs and training that get used</h3>
+        <p>I've written a knowledge base that cut repeat requests 15% in three
+        months, onboarding docs that took five hours off a new engineer's
+        ramp-up, and remediation runbooks for the failures that keep coming
+        back. Training I built cut escalations 30% at two different
+        companies.</p>
       </div>
       <div class="strand reveal">
-        <h3>Quiet, compounding fixes</h3>
-        <p>Automation that returned 30 hours a month to a team. Documentation
-        that shortened onboarding by days. A knowledge base that cut repeat
-        requests 15% in three months. None of it dramatic at the time.</p>
+        <h3>Tooling instead of repetition</h3>
+        <p>If I'm doing the same manual thing twice, the second time goes into a
+        script. Maintenance automation that gave a team back 30 hours a month,
+        a data collection process that stopped eating 200+ hours a year, and
+        the warehouse photo pipeline below.</p>
+      </div>
+      <div class="strand reveal">
+        <h3>The queue as product input</h3>
+        <p>Support tickets, read as a set instead of one at a time, describe
+        what should get built next. At Trove, patterns in the queue turned into
+        three shipped features and 25% fewer repeat requests within six
+        months.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack" class="wrap">
+    <h2>Stack</h2>
+    <div class="stack">
+      <div class="reveal">
+        <h3>Languages</h3>
+        <div class="chips">
+          <span class="chip">JavaScript</span><span class="chip">TypeScript</span>
+          <span class="chip">Python</span><span class="chip">SQL</span>
+          <span class="chip">Kusto (KQL)</span><span class="chip">C#</span>
+          <span class="chip">HTML5</span><span class="chip">CSS3</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3>Front end</h3>
+        <div class="chips">
+          <span class="chip">React</span><span class="chip">Next.js</span>
+          <span class="chip">Vite</span><span class="chip">MUI</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3>APIs and services</h3>
+        <div class="chips">
+          <span class="chip">Node.js</span><span class="chip">Express</span>
+          <span class="chip">REST</span><span class="chip">GraphQL</span>
+          <span class="chip">Azure microservices</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3>Data, cloud, observability</h3>
+        <div class="chips">
+          <span class="chip">PostgreSQL</span><span class="chip">SQL Server</span>
+          <span class="chip">Cosmos DB</span><span class="chip">MongoDB</span>
+          <span class="chip">Databricks</span><span class="chip">AWS</span>
+          <span class="chip">Azure</span><span class="chip">Azure App Insights</span>
+          <span class="chip">Grafana</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3>Workflow</h3>
+        <div class="chips">
+          <span class="chip">Git &amp; GitHub</span><span class="chip">npm</span>
+          <span class="chip">CI/CD</span><span class="chip">Claude Code</span>
+        </div>
       </div>
     </div>
   </section>
@@ -317,6 +383,19 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
 
       <div class="proj reveal">
         <div class="head">
+          <h3>Earworm</h3>
+          <span class="status">Building</span>
+        </div>
+        <p>Whatever song is stuck in my head usually means something, so I built
+        a place to log it — the song, plus whatever it dragged up. Each month's
+        notes turn into a word cloud of what I kept circling back to. React,
+        TypeScript, and Vite. Entries live in the browser for now; a real
+        backend with Clerk auth is next.
+        <a href="https://github.com/goatsaretasty/aurafocus">Source</a></p>
+      </div>
+
+      <div class="proj reveal">
+        <div class="head">
           <h3>NYC Taxi pipeline</h3>
           <span class="status">Shipped</span>
         </div>
@@ -328,18 +407,6 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
         an exercise in doing ELT properly — right transformation at the right
         layer, tests before dashboards. <a href="https://github.com/goatsaretasty/data-eng-workspace">Source</a> ·
         <a href="https://goatsaretasty.github.io/data-eng-workspace/">Docs site</a></p>
-      </div>
-
-      <div class="proj reveal">
-        <div class="head">
-          <h3>Earworm</h3>
-          <span class="status">Prototype</span>
-        </div>
-        <p>Whatever song is stuck in my head at a given moment usually means
-        something, so I built a place to log it — the song, plus whatever it
-        dragged up. Enough entries and it turns into word clouds by month.
-        Auth's wired up with Clerk; the actual point of the app still needs
-        building.</p>
       </div>
 
       <div class="proj reveal">
@@ -392,8 +459,8 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
         <p class="what">I own technical investigations end to end across the distributed
         Azure microservices behind clinical data pipelines — where accuracy has
         scientific consequences. Tracing data from creation to the report where it
-        surfaced wrong, then turning findings into remediation plans, documented
-        playbooks, and summaries leadership can act on.</p>
+        surfaced wrong, then turning findings into remediation plans, runbooks,
+        and summaries leadership can act on.</p>
         <div class="chips">
           <span class="chip">Kusto (KQL)</span><span class="chip">Cosmos DB</span>
           <span class="chip">Azure App Insights</span><span class="chip">Databricks</span>
@@ -404,10 +471,10 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
       <div class="era reveal">
         <div class="years">2023 — 2024</div>
         <h3>Product Support Engineer <span class="org">· Trove Recommerce</span></h3>
-        <p class="what">I shipped custom applications in React, Python, and SQL and served
-        as the technical escalation point on a platform moving 500,000 transactions
-        a day. Reading the support queue as data paid off: recurring patterns became
-        three shipped features, and repeat requests fell 25% within six months.</p>
+        <p class="what">I shipped custom applications in React, Python, and SQL and was
+        the technical escalation point on a platform moving 500,000 transactions a
+        day — tier-2 support for partners, plus the feedback loop from their tickets
+        back to the product team.</p>
         <div class="chips">
           <span class="chip">React</span><span class="chip">Python</span>
           <span class="chip">AWS</span><span class="chip">REST at scale</span>
@@ -458,49 +525,25 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
     </div>
   </section>
 
-  <section class="wrap">
-    <h2>How I work</h2>
-    <div class="creed">
-      <div class="reveal">
-        <h3>Fixing things so they stay fixed</h3>
-        <p>If a problem recurs, the actual fix is a tool, a document, or an
-        automation — not doing the same manual thing again, more carefully.</p>
-      </div>
-      <div class="reveal">
-        <h3>Reading the queue as data</h3>
-        <p>Support tickets, looked at as a set instead of one at a time, tend
-        to describe what should get built next. Three shipped features and a
-        25% drop in repeat requests started as patterns in a queue.</p>
-      </div>
-      <div class="reveal">
-        <h3>Not done until it's understood</h3>
-        <p>Finding the cause isn't the finish line. The person making the
-        decision needs to be able to follow the reasoning and act on it
-        themselves.</p>
-      </div>
-    </div>
-  </section>
-
   <section id="now" class="wrap">
     <h2>Now</h2>
     <div class="creed">
       <div class="reveal">
         <h3>Owning</h3>
-        <p>The full loop from technical investigation to stakeholder decision,
-        not just the investigation half of it.</p>
+        <p>Production investigations at Cogstate, and the runbooks and
+        summaries that come out of them.</p>
       </div>
       <div class="reveal">
-        <h3>Sharpening</h3>
-        <p>Live demos and discovery conversations — walking someone through a
-        system in real time, handling the question I didn't prepare for, and
-        still landing the point.</p>
+        <h3>Building</h3>
+        <p>Earworm, and a small Claude Code clone through CodeCrafters — just
+        past the first API call, with the tool-calling loop next. Building one
+        is how I'm learning what the agentic tools I use are actually doing.</p>
       </div>
       <div class="reveal">
         <h3>Curious about</h3>
-        <p>Roles that sit between solutions engineering and data — where being
-        able to both run the demo and read the query plan actually matters —
-        and how AI-assisted workflows change what one engineer can reasonably
-        own.</p>
+        <p>How AI-assisted troubleshooting changes support work — what an
+        assistant can take off the queue, and what still needs a person who
+        knows the system.</p>
       </div>
     </div>
   </section>
@@ -508,10 +551,10 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
   <section id="contact" class="wrap contact">
     <h2>Get in touch</h2>
     <p class="reveal">
-      I'm drawn to solutions engineering — the seat where deep technical
-      systems meet the people who need to trust and adopt them — with data
-      engineering and SRE-flavored work close behind. If that's the kind of
-      team you're building, I'd be glad to connect.
+      I'm looking for support and solutions engineering roles on
+      developer-facing products and platforms — where the customers are
+      engineers, and the job is part troubleshooting, part tooling, part
+      documentation. If that's what you're hiring for, I'd be glad to talk.
     </p>
     <a class="cta" href="https://www.linkedin.com/in/jadesina">Connect on LinkedIn</a>
   </section>
