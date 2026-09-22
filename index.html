@@ -240,9 +240,9 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
     <span>Adesola Adesina</span>
     <nav>
       <a href="#work">Work</a>
+      <a href="#trajectory">Trajectory</a>
       <a href="#projects">Projects</a>
       <a href="/blog/" class="keep">Writing</a>
-      <a href="#trajectory">Trajectory</a>
       <a href="#now">Now</a>
       <a href="#contact">Contact</a>
       <button id="theme-btn" aria-label="Switch between light and dark mode">◐</button>
@@ -407,74 +407,6 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
     </div>
   </section>
 
-  <section id="projects" class="wrap">
-    <h2>Projects &amp; Ideas</h2>
-    <div class="projects">
-
-      <div class="proj reveal">
-        <div class="head">
-          <h3>Earworm</h3>
-          <span class="status">Building</span>
-        </div>
-        <p>Whatever song is stuck in my head usually means something, so I built
-        a place to log it: the song, plus whatever it dragged up. Each month's
-        notes turn into a word cloud of what I kept coming back to. React,
-        TypeScript, and Vite. It saves to the browser for now, and a real
-        backend with Clerk auth is next.
-        <a href="https://github.com/goatsaretasty/aurafocus">Source</a></p>
-      </div>
-
-      <div class="proj reveal">
-        <div class="head">
-          <h3>NYC Taxi Pipeline</h3>
-          <span class="status">Shipped</span>
-        </div>
-        <p>An ELT pipeline on NYC's public taxi trip data. DuckDB reads the
-        Parquet files straight from NYC TLC's servers, dbt turns them into daily
-        and hourly marts, and schema tests run on every build. It all runs in a
-        GitHub Codespace, and the docs site is generated from the pipeline. <a href="https://github.com/goatsaretasty/data-eng-workspace">Source</a> ·
-        <a href="https://adesola.dev/data-eng-workspace/">Docs site</a></p>
-      </div>
-
-      <div class="proj reveal">
-        <div class="head">
-          <h3>HTTP Server from Scratch</h3>
-          <span class="status">Building</span>
-        </div>
-        <p>An HTTP server in plain Python, through CodeCrafters: parsing raw
-        requests, routing, headers, and responses, all by hand. I work with
-        HTTP servers every day and wanted to know what one is actually doing.</p>
-      </div>
-
-      <div class="proj reveal">
-        <div class="head">
-          <h3>InfernalOps</h3>
-          <span class="status">Prototype</span>
-        </div>
-        <p>Hell has a backlog. InfernalOps is the internal tooling: a Python
-        task system for the underworld's administrative staff — souls onboarded
-        with unique IDs, burdens assigned, updated, reassigned, and on rare
-        appeal removed. Somewhere between <em>The Good Place</em> and the
-        bureaucratic-afterlife genre in Chinese fiction, where damnation is
-        mostly paperwork and the clerks are behind on tickets.</p>
-      </div>
-
-      <div class="proj reveal">
-        <div class="head">
-          <h3>Filler Arc</h3>
-          <span class="status">In the notebook</span>
-        </div>
-        <p>A journal for what I watch — films, shows, anime — built on the
-        instinct to document anything that induces frisson, or even just a
-        thought. Rewatches are first-class: every viewing gets its own entry, so
-        the eighth time through a film sits beside the first, and you can see
-        what changed. (Research to date: eight viewings of <em>Sinners</em>,
-        written up every time.)</p>
-      </div>
-
-    </div>
-  </section>
-
   <section id="trajectory" class="wrap">
     <h2>Trajectory</h2>
     <div class="timeline" id="timeline">
@@ -554,6 +486,74 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
           <span class="chip">RESTful APIs</span><span class="chip">Backlog management</span>
           <span class="chip">Enterprise support</span><span class="chip">Training &amp; adoption</span>
         </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="projects" class="wrap">
+    <h2>Projects &amp; Ideas</h2>
+    <div class="projects">
+
+      <div class="proj reveal">
+        <div class="head">
+          <h3>Earworm</h3>
+          <span class="status">Building</span>
+        </div>
+        <p>Whatever song is stuck in my head usually means something, so I built
+        a place to log it: the song, plus whatever it dragged up. Each month's
+        notes turn into a word cloud of what I kept coming back to. React,
+        TypeScript, and Vite. It saves to the browser for now, and a real
+        backend with Clerk auth is next.
+        <a href="https://github.com/goatsaretasty/aurafocus">Source</a></p>
+      </div>
+
+      <div class="proj reveal">
+        <div class="head">
+          <h3>NYC Taxi Pipeline</h3>
+          <span class="status">Shipped</span>
+        </div>
+        <p>An ELT pipeline on NYC's public taxi trip data. DuckDB reads the
+        Parquet files straight from NYC TLC's servers, dbt turns them into daily
+        and hourly marts, and schema tests run on every build. It all runs in a
+        GitHub Codespace, and the docs site is generated from the pipeline. <a href="https://github.com/goatsaretasty/data-eng-workspace">Source</a> ·
+        <a href="https://adesola.dev/data-eng-workspace/">Docs site</a></p>
+      </div>
+
+      <div class="proj reveal">
+        <div class="head">
+          <h3>HTTP Server from Scratch</h3>
+          <span class="status">Building</span>
+        </div>
+        <p>An HTTP server in plain Python, through CodeCrafters: parsing raw
+        requests, routing, headers, and responses, all by hand. I work with
+        HTTP servers every day and wanted to know what one is actually doing.</p>
+      </div>
+
+      <div class="proj reveal">
+        <div class="head">
+          <h3>InfernalOps</h3>
+          <span class="status">Prototype</span>
+        </div>
+        <p>Hell has a backlog. InfernalOps is the internal tooling: a Python
+        task system for the underworld's administrative staff — souls onboarded
+        with unique IDs, burdens assigned, updated, reassigned, and on rare
+        appeal removed. Somewhere between <em>The Good Place</em> and the
+        bureaucratic-afterlife genre in Chinese fiction, where damnation is
+        mostly paperwork and the clerks are behind on tickets.</p>
+      </div>
+
+      <div class="proj reveal">
+        <div class="head">
+          <h3>Filler Arc</h3>
+          <span class="status">In the notebook</span>
+        </div>
+        <p>A journal for what I watch — films, shows, anime — built on the
+        instinct to document anything that induces frisson, or even just a
+        thought. Rewatches are first-class: every viewing gets its own entry, so
+        the eighth time through a film sits beside the first, and you can see
+        what changed. (Research to date: eight viewings of <em>Sinners</em>,
+        written up every time.)</p>
       </div>
 
     </div>
