@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adesola Adesina — Support &amp; Solutions Engineer</title>
+<title>Adesola Adesina — Software &amp; Support Engineer</title>
 <meta name="description" content="Adesola Adesina is a DC-based engineer with seven-plus years across software, support, and consulting roles on federal, clinical, and commerce platforms. Builds and troubleshoots software in JavaScript, Python, and SQL.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,15 +67,6 @@ a { color: inherit; }
 :focus-visible { outline: 3px solid var(--g1); outline-offset: 3px; border-radius: 3px; }
 .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.5rem; }
 
-/* gradient text is reserved for exactly one place: the hero headline.
-   used anywhere else it stops meaning anything, so it's used nowhere else. */
-.grad-text {
-  background: linear-gradient(100deg, var(--g1), var(--g2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
 /* ---------- header ---------- */
 header {
   position: sticky; top: 0; z-index: 10;
@@ -110,15 +101,27 @@ header {
   letter-spacing: -0.02em;
   max-width: 22ch;
 }
+.hero .hook {
+  margin-top: var(--s-3); max-width: 36rem;
+  font-size: 1.3rem; line-height: 1.5;
+}
 .hero .standfirst {
-  margin-top: var(--s-3); max-width: 35rem;
-  font-size: 1.15rem; color: var(--faint);
+  margin-top: var(--s-2); max-width: 35rem;
+  font-size: 1.1rem; color: var(--faint);
 }
 .hero .facts {
   margin-top: var(--s-3); display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-3);
   font-size: 0.95rem; font-weight: 700;
 }
-.hero .facts span { border-bottom: 2px solid var(--g1); padding-bottom: 2px; }
+/* the underline fills up behind the text on hover */
+.hero .facts span {
+  border-bottom: 2px solid var(--g1);
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(var(--g1), var(--g1)) no-repeat left bottom / 100% 0;
+  transition: background-size 0.25s ease, color 0.25s ease;
+}
+.hero .facts span:hover { background-size: 100% 100%; color: var(--bg); }
 
 /* ---------- sections ---------- */
 section { border-bottom: 1px solid var(--line); }
@@ -192,6 +195,7 @@ h2::after { content: "."; color: var(--plum); }
 .creed { display: grid; gap: var(--s-3); }
 .creed h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.3rem; }
 .creed p { color: var(--faint); max-width: 38rem; }
+.creed p + p { margin-top: var(--s-1); }
 
 /* ---------- contact ---------- */
 .contact p { max-width: 36rem; }
@@ -218,6 +222,7 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .timeline::after { transform: scaleY(1); transition: none; }
+  .hero .facts span { transition: none; }
 }
 </style>
 </head>
@@ -241,19 +246,19 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
 <main>
   <div class="hero">
     <div class="wrap">
-      <p class="kicker">Tech enabled, solutions oriented</p>
-      <h1>I build software <span class="grad-text">and figure out why it breaks.</span></h1>
+      <p class="kicker">Tech Enabled, Solutions Oriented</p>
+      <h1>Software &amp; Support Engineer</h1>
+      <p class="hook">
+        I think of documentation as a radical act of empathy from my current
+        self to the future self who will not have a Ouija board.
+      </p>
       <p class="standfirst">
-        I'm Adesola. I've spent seven-plus years as a software engineer, support
-        engineer, and technical consultant on federal, clinical, and commerce
-        platforms. I've shipped apps in React, Python, and SQL, built REST
-        integrations, and automated a lot of manual work. When something breaks,
-        I dig until I know why and write it up so the next person has a runbook.
+        Seven-plus years building and debugging software on federal, clinical,
+        and commerce platforms, in React, Python, and SQL.
       </p>
       <div class="facts">
         <span>Lagos-born, DC-based</span>
         <span>Active Secret clearance</span>
-        <span>7+ years in the field</span>
       </div>
     </div>
   </div>
@@ -277,9 +282,7 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
       </div>
       <div class="strand reveal">
         <h3>Documentation and Training</h3>
-        <p>I think of documentation as a radical act of empathy from my current
-        self to the future self who will not have a Ouija board. A knowledge
-        base I built cut repeat requests 15% in three months, and onboarding
+        <p>A knowledge base I built cut repeat requests 15% in three months, and onboarding
         docs I wrote took five hours off a new engineer's ramp-up. At Cogstate
         I write the runbooks for failures we've seen before. Training I ran cut
         escalations 30% at two different companies.</p>
@@ -538,20 +541,38 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
     <h2>Now</h2>
     <div class="creed">
       <div class="reveal">
-        <h3>Owning</h3>
-        <p>Production investigations at Cogstate, and the runbooks and
-        summaries that come out of them.</p>
+        <h3>At Cogstate</h3>
+        <p>I'm an application support engineer, and the job covers several roles
+        at once: senior support engineer, systems analyst, and production steward
+        for the distributed Azure services behind Cogstate's clinical trial data.
+        I trace data from the moment a trial participant is created to the report
+        where something surfaced wrong, across SQL Server, Cosmos DB, Databricks,
+        and App Insights. The SQL and KQL I write is how I find race conditions
+        and architectural bottlenecks.</p>
+        <p>When something goes wrong in production, I size the risk, write the
+        remediation plan and the Jira tickets, and summarize it for leadership.
+        I work with product, science, DevOps, engineering, client support, and
+        outside partners.</p>
       </div>
       <div class="reveal">
         <h3>Building</h3>
-        <p>Earworm, and a small Claude Code clone through CodeCrafters. It's
-        just past the first API call, and the tool-calling loop is next. I use
-        tools like this a lot and want to understand how they work.</p>
+        <p>Earworm, this site and its blog, and a small Claude Code clone through
+        CodeCrafters, working up to the tool-calling loop. I build with Claude
+        Code, and writing my own version is how I'm learning what it's actually
+        doing.</p>
       </div>
       <div class="reveal">
-        <h3>Curious About</h3>
-        <p>How much of a support queue an AI assistant can handle well, and
-        where it needs someone who knows the system.</p>
+        <h3>Data Engineering in an AI World</h3>
+        <p>The pipelines, data quality, and observability that AI systems depend
+        on. My day job is already data integrity work across Databricks, Cosmos
+        DB, and SQL Server, and the NYC Taxi pipeline is where I practice dbt and
+        DuckDB.</p>
+      </div>
+      <div class="reveal">
+        <h3>AI-Assisted Engineering</h3>
+        <p>How assistants like Claude Code change what one engineer can own, and
+        how much of a support queue an assistant can handle well before it needs
+        someone who knows the system.</p>
       </div>
     </div>
   </section>
