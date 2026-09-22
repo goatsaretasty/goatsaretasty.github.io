@@ -209,9 +209,10 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
 @media (max-width: 540px) {
   .hero { padding: var(--s-5) 0 var(--s-4); }
 }
-/* five nav links don't fit a phone; the page is one scroll anyway */
+/* the section links don't fit a phone and the page is one scroll anyway;
+   Writing goes to a different page, so it stays */
 @media (max-width: 640px) {
-  .topline nav a { display: none; }
+  .topline nav a:not(.keep) { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -228,6 +229,7 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
     <nav>
       <a href="#work">Work</a>
       <a href="#projects">Projects</a>
+      <a href="/blog/" class="keep">Writing</a>
       <a href="#trajectory">Trajectory</a>
       <a href="#now">Now</a>
       <a href="#contact">Contact</a>

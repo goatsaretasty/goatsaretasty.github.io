@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if title %}{{ title }} · {% endif %}Adesola Adesina</title>
+{% if description %}<meta name="description" content="{{ description }}">{% endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/blog.css">
+<script>
+  // Runs before first paint so the page never flashes the wrong theme.
+  // Shares the "theme" key with the portfolio page.
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem("theme"); } catch (e) {}
+    var system = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", saved || system);
+  })();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap topline">
+    <a href="/" class="home">Adesola Adesina</a>
+    <nav>
+      <a href="/blog/">Writing</a>
+      <button id="theme-btn" aria-label="Switch between light and dark mode">◐</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+{{ content | safe }}
+</main>
+
+<footer>
+  <div class="wrap">Adesola Adesina · <a href="/">Portfolio</a> · <a href="/blog/">Writing</a></div>
+</footer>
+
+<script>
+  document.getElementById("theme-btn").addEventListener("click", function () {
+    var root = document.documentElement;
+    var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+</script>
+</body>
+</html>

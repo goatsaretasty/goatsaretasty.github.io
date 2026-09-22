@@ -1,0 +1,16 @@
+---
+layout: base.njk
+---
+<article class="post">
+  <header class="post-head">
+    {% if draft %}<p class="draft-flag">Draft · only visible locally</p>{% endif %}
+    <h1>{{ title }}</h1>
+    <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
+  </header>
+
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+</article>
+
+<p class="back"><a href="/blog/">All writing</a></p>

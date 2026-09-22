@@ -1,0 +1,111 @@
+/* Same color tokens and spacing scale as the portfolio page (index.html),
+   so the blog reads as part of the same site. Change them in both places. */
+:root {
+  --bg: #F4FAF0;
+  --surface: #FFFFFF;
+  --ink: #034732;
+  --faint: #3E5B4F;
+  --line: #C7DDC0;
+  --g1: #007A43;
+  --code-bg: #E7F1E2;
+  --plum: #3C1642;
+  --plum-bg: #F0E6F5;
+
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.75rem;
+  --s-4: 2.75rem;
+  --s-5: 4rem;
+}
+[data-theme="dark"] {
+  --bg: #150A18;
+  --surface: #221228;
+  --ink: #EFF6EA;
+  --faint: #C3B4CB;
+  --line: #402A48;
+  --g1: #B2FFA9;
+  --code-bg: #24152A;
+  --plum: #D9B8E8;
+  --plum-bg: #2E1734;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Public Sans", -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration-color: var(--g1); text-underline-offset: 3px; }
+a:hover { color: var(--g1); }
+:focus-visible { outline: 3px solid var(--g1); outline-offset: 3px; border-radius: 3px; }
+.wrap { max-width: 42rem; margin: 0 auto; padding-inline: 1.5rem; }
+
+/* ---------- header / footer ---------- */
+body > header { border-bottom: 1px solid var(--line); }
+.topline {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-block: var(--s-1);
+  font-weight: 700; font-size: 0.95rem;
+}
+.topline .home { text-decoration: none; }
+.topline nav { display: flex; align-items: center; gap: var(--s-3); }
+.topline nav a { text-decoration: none; }
+#theme-btn {
+  background: none; border: 1px solid var(--line); color: var(--ink);
+  border-radius: 99px; width: 2.3rem; height: 2.3rem;
+  font-size: 1rem; cursor: pointer; line-height: 1;
+}
+#theme-btn:hover { border-color: var(--g1); }
+
+main { padding-block: var(--s-5); }
+footer { border-top: 1px solid var(--line); padding-block: var(--s-2) var(--s-3); font-size: 0.9rem; color: var(--faint); }
+
+/* ---------- index ---------- */
+.page-title { font-size: 2.2rem; font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; }
+.lede { color: var(--faint); margin-top: var(--s-1); }
+.post-list { list-style: none; margin-top: var(--s-4); display: grid; gap: var(--s-3); }
+.post-list a { font-size: 1.2rem; font-weight: 800; text-decoration: none; }
+.post-list time { display: block; font-size: 0.9rem; color: var(--faint); margin-top: 0.15rem; }
+.post-list p { color: var(--faint); margin-top: var(--s-1); }
+.empty { margin-top: var(--s-4); color: var(--faint); }
+
+.draft-flag {
+  display: inline-block; font-size: 0.8rem; font-weight: 700;
+  color: var(--plum); background: var(--plum-bg);
+  padding: 0.15rem 0.65rem; border-radius: 99px;
+  margin-bottom: var(--s-2);
+}
+.draft-flag.inline { margin: 0 0 0 var(--s-1); vertical-align: middle; }
+
+/* ---------- post ---------- */
+.post-head h1 { font-size: clamp(1.9rem, 5vw, 2.5rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; }
+.post-head time { display: block; color: var(--faint); font-size: 0.95rem; margin-top: var(--s-1); }
+
+.prose { margin-top: var(--s-4); }
+.prose > * + * { margin-top: var(--s-2); }
+.prose h2 { font-size: 1.35rem; font-weight: 800; line-height: 1.3; margin-top: var(--s-4); }
+.prose h3 { font-size: 1.1rem; font-weight: 800; margin-top: var(--s-3); }
+.prose ul, .prose ol { padding-left: 1.4rem; }
+.prose li + li { margin-top: 0.35rem; }
+.prose blockquote { border-left: 3px solid var(--g1); padding-left: var(--s-2); color: var(--faint); }
+.prose img { max-width: 100%; height: auto; }
+.prose code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 0.1em 0.35em; border-radius: 4px;
+}
+.prose pre {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: var(--s-2);
+  overflow-x: auto;
+  line-height: 1.55;
+}
+.prose pre code { background: none; padding: 0; font-size: 0.85rem; }
+
+.back { margin-top: var(--s-5); font-weight: 700; }
