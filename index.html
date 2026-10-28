@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adesola Adesina — Software &amp; Support Engineer</title>
-<meta name="description" content="Adesola Adesina is a DC-based engineer with seven-plus years across software, support, and consulting roles on federal, clinical, and commerce platforms. Builds and troubleshoots software in .NET, React, Python, and SQL.">
+<title>Adesola Adesina — Solutions Engineer | Observability &amp; Customer Engineering</title>
+<meta name="description" content="Adesola Adesina is a Solutions Engineer focused on observability and customer engineering. Nine-plus years turning production failures on enterprise Azure systems into dashboards, runbooks, and training. Grafana, Application Insights, .NET, Python.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,600;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    HOW TO EDIT
@@ -18,17 +18,19 @@
    ============================================================ */
 
 :root {
-  --bg: #F4FAF0;
+  --bg: #F3F8F7;
   --surface: #FFFFFF;
-  --ink: #034732;          /* Deep Forest ink */
-  --faint: #3E5B4F;        /* darkened slightly from the original for cleaner contrast */
-  --line: #C7DDC0;         /* darkened slightly so section rules actually read as rules */
-  --g1: #007A43;
-  --g2: #5C8A22;
-  --chip-bg: #E4F2DC;
-  --plum: #3C1642;
-  --plum-bg: #F0E6F5;
-  --sel-text: #B2FFA9;
+  --ink: #10262A;
+  --faint: #4A6366;
+  --line: #CFE0DE;
+  --g1: #0B7F77;          /* teal accent */
+  --g2: #0B7F77;
+  --g3: #2D5BD0;          /* gradient partner */
+  --chip-bg: #E1EEEC;
+  --plum: #0B7F77;
+  --plum-bg: #D5EAE7;
+  --sel-text: #F3F8F7;
+  --display: "Space Grotesk", "DM Sans", sans-serif;
 
   /* spacing scale — every margin/padding/gap on the page pulls from this */
   --s-1: 0.5rem;
@@ -39,17 +41,18 @@
   --s-6: 6rem;
 }
 [data-theme="dark"] {
-  --bg: #150A18;
-  --surface: #221228;
-  --ink: #EFF6EA;
-  --faint: #C3B4CB;
-  --line: #402A48;
-  --g1: #B2FFA9;
-  --g2: #BED558;
-  --chip-bg: #22301F;
-  --plum: #D9B8E8;
-  --plum-bg: #2E1734;
-  --sel-text: #2A1130;
+  --bg: #0B1416;
+  --surface: #111D20;
+  --ink: #E6EFEE;
+  --faint: #8FA6A8;
+  --line: #1F3236;
+  --g1: #4FD1C5;
+  --g2: #4FD1C5;
+  --g3: #6B8CFF;
+  --chip-bg: #111D20;
+  --plum: #4FD1C5;
+  --plum-bg: #14282B;
+  --sel-text: #0B1416;
 }
 ::selection { background: var(--plum); color: var(--sel-text); }
 
@@ -58,14 +61,14 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: "Public Sans", -apple-system, "Segoe UI", sans-serif;
+  font-family: "DM Sans", -apple-system, "Segoe UI", sans-serif;
   font-size: 1.0625rem;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--g1); outline-offset: 3px; border-radius: 3px; }
-.wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.5rem; }
+.wrap { max-width: 60rem; margin: 0 auto; padding: 0 1.5rem; }
 
 /* ---------- header ---------- */
 header {
@@ -89,26 +92,52 @@ header {
 #theme-btn:hover { border-color: var(--g1); }
 
 /* ---------- hero ---------- */
-.hero { padding: var(--s-6) 0 var(--s-5); border-bottom: 1px solid var(--line); }
+.hero {
+  padding: var(--s-6) 0 var(--s-5); border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(52rem 26rem at 90% -5%, color-mix(in srgb, var(--g1) 16%, transparent), transparent 70%),
+    radial-gradient(40rem 22rem at 0% 110%, color-mix(in srgb, var(--g3) 12%, transparent), transparent 70%);
+}
 .hero .kicker {
-  font-weight: 700; color: var(--plum); font-size: 1rem;
+  font-weight: 700; color: var(--g1); font-size: 0.85rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
   margin-bottom: var(--s-2);
 }
 .hero h1 {
-  font-weight: 900;
-  font-size: clamp(2.2rem, 6.5vw, 3.8rem);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  max-width: 22ch;
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+.hero h1 span { display: block; }
+.hero h1 em {
+  font-style: italic; color: var(--g1);
+  background: linear-gradient(90deg, var(--g1), var(--g3));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero .sub {
+  margin-top: var(--s-3); max-width: 38rem;
+  font-size: 1.25rem; line-height: 1.55;
 }
 .hero .hook {
-  margin-top: var(--s-3); max-width: 36rem;
-  font-size: 1.3rem; line-height: 1.5;
+  margin-top: var(--s-2); max-width: 36rem;
+  font-size: 1.05rem; line-height: 1.5; color: var(--faint); font-style: italic;
 }
-.hero .standfirst {
-  margin-top: var(--s-2); max-width: 35rem;
-  font-size: 1.1rem; color: var(--faint);
+.hero .ctas { margin-top: var(--s-3); display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.hero .ctas a {
+  font-weight: 700; text-decoration: none; padding: 0.7rem 1.2rem;
+  border: 2px solid var(--g1); border-radius: 99px;
 }
+.hero .ctas a.primary { background: var(--g1); color: var(--bg); }
+.hero .ctas a:hover { background: var(--g1); color: var(--bg); }
+.proof {
+  margin-top: var(--s-4); display: grid; gap: var(--s-2);
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  border-top: 1px solid var(--line); padding-top: var(--s-3);
+}
+.proof strong { display: block; font-family: var(--display); font-size: 2.2rem; line-height: 1.1; color: var(--g1);
+  background: linear-gradient(90deg, var(--g1), var(--g3)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.proof span { color: var(--faint); font-size: 0.95rem; }
 .hero .facts {
   margin-top: var(--s-3); display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-3);
   font-size: 0.95rem; font-weight: 700;
@@ -126,7 +155,7 @@ header {
 /* ---------- sections ---------- */
 section { border-bottom: 1px solid var(--line); }
 section.wrap { padding: var(--s-4) 1.5rem; }
-h2 { font-size: 1.05rem; font-weight: 900; margin-bottom: var(--s-3); }
+h2 { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: var(--s-3); }
 h2::after { content: "."; color: var(--plum); }
 
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
@@ -159,9 +188,11 @@ h2::after { content: "."; color: var(--plum); }
 .era:last-child { padding-bottom: var(--s-1); }
 .era::before {
   content: ""; position: absolute; left: -1.6rem; top: 8px;
-  width: 12px; height: 12px; border-radius: 50%;
+  box-sizing: border-box; width: 12px; height: 12px; border-radius: 50%;
   background: var(--bg); border: 3px solid var(--g1);
+  transition: transform 0.2s ease, background 0.2s ease;
 }
+.era:hover::before { transform: scale(1.35); background: var(--g1); }
 .era .years { font-weight: 900; font-size: 0.95rem; color: var(--g1); }
 .era h3 { font-size: 1.15rem; font-weight: 800; margin-top: var(--s-1); line-height: 1.3; }
 .era .org { font-weight: 400; color: var(--faint); }
@@ -174,23 +205,71 @@ h2::after { content: "."; color: var(--plum); }
 }
 
 /* ---------- case study ---------- */
-.case { border-top: 3px solid var(--g1); padding-top: var(--s-2); }
+.case { border-top: 3px solid; border-image: linear-gradient(90deg, var(--g1), var(--g3)) 1; padding-top: var(--s-2); }
 .case h3 { font-size: 1.2rem; font-weight: 800; line-height: 1.3; }
 .case .role { color: var(--faint); font-size: 0.95rem; margin-top: var(--s-1); }
 .case h4 { font-size: 0.95rem; font-weight: 800; margin-top: var(--s-3); }
 .case p { color: var(--faint); margin-top: var(--s-1); max-width: 40rem; }
 .case .chips { margin-top: var(--s-3); }
+.case .se-lens { border-left: 3px solid var(--plum); padding: var(--s-1) var(--s-2); margin-top: var(--s-3); max-width: 40rem; }
+.case .se-lens p { margin-top: 0; }
+.case .se-lens strong { color: var(--plum); }
 
 /* ---------- projects ---------- */
 .projects { display: grid; gap: var(--s-4); }
-.proj { border-top: 3px solid var(--g1); padding-top: var(--s-2); }
+.proj { border-top: 3px solid; border-image: linear-gradient(90deg, var(--g1), var(--g3)) 1; padding-top: var(--s-2); }
+.tiles { display: grid; gap: var(--s-2); grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.tile {
+  padding: var(--s-3); border: 1px solid var(--line); border-radius: 12px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--g1) 14%, var(--surface)), var(--surface) 70%);
+}
+.tile h3 { font-family: var(--display); font-size: 1.15rem; font-weight: 700; }
+.tile p { color: var(--faint); margin-top: var(--s-1); }
+.clearance p { color: var(--faint); max-width: 40rem; }
 .proj .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem var(--s-2); }
 .proj h3 { font-size: 1.15rem; font-weight: 800; }
 .proj .status {
   font-size: 0.8rem; font-weight: 700; color: var(--plum);
   background: var(--plum-bg); padding: 0.15rem 0.65rem; border-radius: 99px;
 }
+.proj, .tile, .chip, .proof > div, .hero .ctas a, .strand { transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease; }
+.proj:hover { transform: translateY(-4px); }
+.tile:hover { transform: translateY(-4px); box-shadow: 0 12px 30px -12px color-mix(in srgb, var(--g1) 55%, transparent); border-color: var(--g1); }
+.chip:hover { background: var(--g1); color: var(--bg); transform: translateY(-2px); }
+.proof > div:hover { transform: translateY(-3px); }
+.hero .ctas a:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -10px color-mix(in srgb, var(--g1) 70%, transparent); }
+.topline nav a { background: linear-gradient(var(--g1), var(--g1)) no-repeat left bottom / 0 2px; transition: background-size 0.25s ease, color 0.25s ease; }
+.topline nav a:hover { background-size: 100% 2px; }
 .proj p { color: var(--faint); margin-top: var(--s-1); max-width: 40rem; }
+.proj dl { margin-top: var(--s-1); max-width: 40rem; display: grid; grid-template-columns: 8.5rem 1fr; gap: var(--s-1) var(--s-2); }
+.proj dt { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--g1); padding-top: 0.2rem; }
+.proj dd { color: var(--faint); }
+.proj .chips { margin-top: var(--s-2); }
+/* ---------- headings: one system ----------
+   h2        section title (display, reveals on scroll)
+   .title    item title: strand, creed, era, case, proj, tile (display, goes accent on hover)
+   .label    small caps label: stack groups, case h4, project subheads */
+.strand h3, .creed h3, .era h3, .case h3, .proj h3, .tile h3 {
+  font-family: var(--display); font-size: 1.2rem; font-weight: 700;
+  letter-spacing: -0.01em; line-height: 1.3; margin-top: 0; margin-bottom: 0;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+.era h3 { margin-top: var(--s-1); }
+.strand h3, .creed h3 { margin-bottom: var(--s-1); }
+.stack h3, .case h4, .subhead {
+  font-family: var(--body, inherit); font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--g1);
+  margin-top: 0; margin-bottom: 0;
+}
+.case h4 { margin-top: var(--s-3); }
+.subhead { display: flex; align-items: center; gap: var(--s-2); margin: var(--s-5) 0 var(--s-3); }
+.subhead::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }
+.subhead:first-of-type { margin-top: 0; }
+.strand:hover h3, .creed > div:hover h3, .era:hover h3, .proj:hover h3, .tile:hover h3, .case:hover > h3 { color: var(--g1); }
+.strand:hover h3, .creed > div:hover h3, .era:hover h3 { transform: translateX(4px); }
+h2.reveal { transition-duration: 0.6s; }
+
+@media (max-width: 540px) { .proj dl { grid-template-columns: 1fr; gap: 0; } .proj dd { margin-bottom: var(--s-1); } }
 
 /* ---------- how I work / now ---------- */
 .creed { display: grid; gap: var(--s-3); }
@@ -228,6 +307,9 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .timeline::after { transform: scaleY(1); transition: none; }
+  .proj, .tile, .chip, .proof > div, .hero .ctas a, .era::before, .topline nav a { transition: none; }
+  .strand:hover h3, .creed > div:hover h3, .era:hover h3 { transform: none; }
+  .proj:hover, .tile:hover, .chip:hover, .proof > div:hover, .hero .ctas a:hover, .era:hover::before { transform: none; }
   .hero .facts span { transition: none; }
   .contact .cta { transition: none; }
 }
@@ -242,9 +324,11 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
       <a href="#work">Work</a>
       <a href="#trajectory">Trajectory</a>
       <a href="#projects">Projects</a>
+      <a href="#creative">Creative</a>
       <a href="/blog/" class="keep">Writing</a>
       <a href="#now">Now</a>
       <a href="#contact">Contact</a>
+      <a href="assets/resume.pdf" download>Résumé</a>
       <button id="theme-btn" aria-label="Switch between light and dark mode">◐</button>
     </nav>
   </div>
@@ -253,80 +337,91 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
 <main>
   <div class="hero">
     <div class="wrap">
-      <p class="kicker">Tech Enabled, Solutions Oriented</p>
-      <h1>Software &amp; Support Engineer</h1>
+      <p class="kicker">Solutions Engineer · Observability &amp; Customer Engineering</p>
+      <h1><span>I find it.</span> <span>I explain it.</span> <span><em>I take it upstream.</em></span></h1>
+      <p class="sub">
+        Nine-plus years turning production failures in enterprise Azure systems
+        into dashboards, runbooks, and training that stop the next one. Now doing
+        that with customers, upstream.
+      </p>
       <p class="hook">
         I think of documentation as a radical act of empathy from my current
-        self to the future self who will not have a Ouija board.
+        self to the future self who will not have a time machine.
       </p>
-      <p class="standfirst">
-        Seven-plus years across federal, clinical, and commerce platforms,
-        building in .NET, React, Python, and SQL, and asking production very
-        politely what it thinks it's doing.
-      </p>
+      <div class="ctas">
+        <a class="primary" href="#projects">See my work ↓</a>
+        <a href="assets/resume.pdf" download>Résumé ↓</a>
+      </div>
       <div class="facts">
         <span>Lagos-Born, DC-Based</span>
-        <span>Active Secret Clearance</span>
         <span>Dog Aunt</span>
+      </div>
+      <div class="proof">
+        <div><strong>9+ yrs</strong><span>across federal, clinical, and commerce platforms</span></div>
+        <div><strong>30%</strong><span>fewer escalations after training support teams at Trove</span></div>
+        <div><strong>3</strong><span>features shipped from support patterns</span></div>
+        <div><strong>11,000+</strong><span>users supported and trained at CGI</span></div>
       </div>
     </div>
   </div>
 
   <section id="work" class="wrap">
-    <h2>What I Do</h2>
+    <h2 class="reveal">What I Do</h2>
     <div class="strands">
       <div class="strand reveal">
+        <h3>Technical Discovery &amp; Escalation Ownership</h3>
+        <p>I trace a customer's problem until I understand the system well enough
+        to explain it back to them. At Cogstate that means working across a
+        platform of .NET microservices on Azure, with React front ends and SQL
+        Server, Cosmos DB, and Databricks behind them, usually by way of a great
+        deal of KQL, and often turning up race conditions and architectural
+        bottlenecks along the way. Once the cause is clear, I size the production
+        risk, get the right teams moving on remediation, and document the failure
+        pattern, since the same thing has a way of breaking twice.</p>
+      </div>
+      <div class="strand reveal">
+        <h3>Customer Enablement</h3>
+        <p>Runbooks, KB articles, tutorials, and training sessions have run through
+        most of my career, going back to my time as a software trainer at the
+        USPTO. At Accenture Federal Services, I trained people on the HoloLens, ran
+        troubleshooting training for client support teams, and built a knowledge
+        base that cut repeat requests 15% in three months. At Trove, my onboarding
+        documentation took five hours off a new engineer's ramp-up, and the regular
+        training I ran for the support team cut escalations 30%, alongside
+        tutorials and release-day support. At Cogstate, I write the runbooks for failures we've seen
+        before.</p>
+      </div>
+      <div class="strand reveal">
+        <h3>Voice of the Customer</h3>
+        <p>I read the support queue in aggregate, looking for the patterns that only
+        show up across many tickets, then turn them into product conversations. At
+        Trove, a feedback loop I built between support and product produced three
+        shipped features and a 25% drop in repeat requests within six months.</p>
+      </div>
+      <div class="strand reveal">
+        <h3>Solution Design &amp; Tooling</h3>
+        <p>When a manual step keeps coming back, I build the script or app that
+        removes it; my tolerance for doing the same task by hand runs out at about
+        two repetitions. Over the years, that instinct has produced maintenance
+        automation that returned 30 hours a month to my team at AIS, a streamlined
+        data collection process at Guidehouse that saved more than 200 hours a year,
+        and the hands-free warehouse photo pipeline described below.</p>
+      </div>
+      <div class="strand reveal">
         <h3>Building Software</h3>
-        <p>At Trove I designed and shipped internal applications in React, Python,
-        and SQL, shaving an average of five seconds off their load times, and I was
-        the sole owner of the warehouse photography workstream detailed in the case
-        study below. Before that, as a software engineer at AIS, I worked on a
-        Department of Defense contract in .NET architecture, paying down tech debt
-        and contributing meaningfully to the broader engineering organization.</p>
-      </div>
-      <div class="strand reveal">
-        <h3>Troubleshooting</h3>
-        <p>When something looks wrong, I trace it until I understand why. At
-        Cogstate that means working across a platform of .NET microservices on
-        Azure, with React front ends and SQL Server, Cosmos DB, and Databricks
-        behind them, usually by way of a great deal of KQL, and often turning up
-        race conditions and architectural bottlenecks along the way. Once the cause
-        is clear, I size the production risk, get the right teams moving on
-        remediation, and document the failure pattern, since the same thing has a
-        way of breaking twice.</p>
-      </div>
-      <div class="strand reveal">
-        <h3>Documentation and Training</h3>
-        <p>Documentation and training have run through most of my career, going
-        back to my time as a software trainer at the USPTO. At Accenture Federal
-        Services, I trained people on the HoloLens, ran troubleshooting training for
-        client support teams, and built a knowledge base that cut repeat requests
-        15% in three months. At Trove, my onboarding documentation took five hours
-        off a new engineer's ramp-up, and I ran regular training for the support
-        team alongside tutorials and release-day support. At Cogstate, I write the
-        runbooks for failures we've seen before.</p>
-      </div>
-      <div class="strand reveal">
-        <h3>Automation</h3>
-        <p>My tolerance for doing the same task by hand runs out at about two
-        repetitions, after which it becomes a script. Over the years, that instinct
-        has produced maintenance automation that returned 30 hours a month to my
-        team at AIS, a streamlined data collection process at Guidehouse that saved
-        more than 200 hours a year, and the hands-free warehouse photo pipeline
-        described below.</p>
-      </div>
-      <div class="strand reveal">
-        <h3>Feeding Tickets Back to Product</h3>
-        <p>I read support tickets in aggregate, looking for the patterns that only
-        show up across many of them. At Trove, a feedback loop I built between
-        support and product turned those patterns into three shipped features and a
-        25% drop in repeat requests within six months.</p>
+        <p>Underneath the customer-facing work is real engineering. At Trove I
+        designed and shipped internal applications in React, Python, and SQL,
+        shaving an average of five seconds off their load times, and I was the sole
+        owner of the warehouse photography workstream detailed in the case study
+        below. Before that, as a software engineer at AIS, I worked on a Department
+        of Defense contract in .NET architecture, paying down tech debt and
+        contributing meaningfully to the broader engineering organization.</p>
       </div>
     </div>
   </section>
 
   <section id="stack" class="wrap">
-    <h2>Stack</h2>
+    <h2 class="reveal">Stack</h2>
     <p class="stack-lede reveal">My current environment at Cogstate is a .NET
     microservices architecture on Azure, with React front ends and data layers in
     SQL Server, Cosmos DB, and Databricks.</p>
@@ -380,7 +475,7 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
   </section>
 
   <section id="trajectory" class="wrap">
-    <h2>Trajectory</h2>
+    <h2 class="reveal">Trajectory</h2>
     <div class="timeline" id="timeline">
 
       <div class="era reveal">
@@ -469,10 +564,19 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
   </section>
 
   <section id="casestudy" class="wrap">
-    <h2>Case Study</h2>
+    <h2 class="reveal">Case Study</h2>
     <div class="case reveal">
       <h3>A Shutter-to-Retouch Photo Pipeline for Warehouse Operations</h3>
       <div class="role">Trove Recommerce · Python, Tkinter, AppleScript, CaptureOne, Google Drive</div>
+
+      <div class="se-lens">
+        <p><strong>SE lens:</strong> The customer was a warehouse team and an
+        external retouching partner. The problem was a workflow that left
+        less-technical users stuck in multi-week ticket loops. I scoped the
+        requirements with both sides, rebuilt the capture app so a single keystroke
+        handled photo, metadata, and notes, documented it, and instrumented it with
+        telemetry.</p>
+      </div>
 
       <h4>The Situation</h4>
       <p>At Trove I was the sole owner of the workstream where photography met
@@ -512,20 +616,17 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
   </section>
 
   <section id="projects" class="wrap">
-    <h2>Projects &amp; Ideas</h2>
+    <h2 class="reveal">Projects &amp; Ideas</h2>
+    <h3 class="subhead">Data &amp; observability</h3>
     <div class="projects">
 
       <div class="proj reveal">
         <div class="head">
-          <h3>Earworm</h3>
+          <h3>Music Library Pipeline</h3>
           <span class="status">Building</span>
         </div>
-        <p>A music meditation app, built on the premise that whatever song is stuck
-        in my head usually means something. Each entry pairs the song with whatever
-        it dragged up, and each month's reflections resolve into a word cloud of
-        what I kept returning to. It's built in React, TypeScript, and Vite, and
-        saves to the browser for now.
-        <a href="https://github.com/goatsaretasty/aurafocus">Source</a></p>
+        <p>A pipeline that takes a library of tracks, parses the titles, matches them against MusicBrainz candidates, and models the result with dbt on a local DuckDB warehouse. It keeps a running log of what broke along the way, and a session-state file so work resumes cleanly.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">DuckDB</span><span class="chip">dbt</span><span class="chip">MusicBrainz</span></div>
       </div>
 
       <div class="proj reveal">
@@ -539,50 +640,89 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
         build. The whole thing lives in a GitHub Codespace, and the documentation
         site is generated from the pipeline itself. <a href="https://github.com/goatsaretasty/data-eng-workspace">Source</a> ·
         <a href="https://adesola.dev/data-eng-workspace/">Docs site</a></p>
+        <div class="chips"><span class="chip">DuckDB</span><span class="chip">dbt</span><span class="chip">Parquet</span></div>
       </div>
 
       <div class="proj reveal">
         <div class="head">
-          <h3>HTTP Server from Scratch</h3>
+          <h3>R09 Ring Dashboard</h3>
+          <span class="status">Working</span>
+        </div>
+        <p>Reads a Colmi R09 smart ring over Bluetooth LE and stores heart rate, sleep, SpO2, HRV, stress, and steps in SQLite, then serves a local dashboard. The hard part was reverse-engineering the ring&rsquo;s protocol and getting macOS to share the Bluetooth link.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Bluetooth LE</span><span class="chip">SQLite</span></div>
+      </div>
+    </div>
+
+    <h3 class="subhead">Products &amp; tools</h3>
+    <div class="projects">
+
+      <div class="proj reveal">
+        <div class="head">
+          <h3>Zubaan</h3>
           <span class="status">Building</span>
         </div>
-        <p>An HTTP server written in plain Python through CodeCrafters, handling
-        request parsing, routing, headers, and responses entirely by hand. After
-        years of building on top of HTTP servers, I wanted to understand exactly
-        what one is doing underneath.</p>
+        <p>A single-user language tutor for French, Levantine Arabic, Swahili, and Mandarin. One server-side OpenAI call per learner turn, FSRS spaced repetition for review, and all learner state kept in the browser.</p>
+        <div class="chips"><span class="chip">Cloudflare Pages</span><span class="chip">JavaScript</span><span class="chip">OpenAI API</span><span class="chip">FSRS</span></div>
       </div>
 
       <div class="proj reveal">
         <div class="head">
-          <h3>InfernalOps</h3>
-          <span class="status">Prototype</span>
+          <h3>Ladder</h3>
+          <span class="status">Building</span>
         </div>
-        <p>Hell has a backlog. InfernalOps is the internal tooling: a Python
-        task system for the underworld's administrative staff — souls onboarded
-        with unique IDs, burdens assigned, updated, reassigned, and on rare
-        appeal removed. Somewhere between <em>The Good Place</em> and the
-        bureaucratic-afterlife genre in Chinese fiction, where damnation is
-        mostly paperwork and the clerks are behind on tickets.</p>
+        <p>A rehabilitation gym for an engineer returning to the craft, built around the rule that completion is gated by evidence, never by a click. Lessons, rubrics, and a deterministic scorer are all validated against a typed schema.</p>
+        <div class="chips"><span class="chip">TypeScript</span><span class="chip">Vitest</span></div>
       </div>
 
       <div class="proj reveal">
         <div class="head">
-          <h3>Filler Arc</h3>
-          <span class="status">In the notebook</span>
+          <h3>Cognitive Resistance Gym</h3>
+          <span class="status">Building</span>
         </div>
-        <p>A journal for what I watch — films, shows, anime — built on the
-        instinct to document anything that induces frisson, or even just a
-        thought. Rewatches are first-class: every viewing gets its own entry, so
-        the eighth time through a film sits beside the first, and you can see
-        what changed. (Research to date: eight viewings of <em>Sinners</em>,
-        written up every time.)</p>
+        <p>Short structured exercises followed by Socratic AI coaching, meant to train the habit of staying the author of your own reasoning. The first vertical slice, a Contradiction Lab station, runs end to end against a mocked coach.</p>
+        <div class="chips"><span class="chip">Next.js</span><span class="chip">Prisma</span><span class="chip">TypeScript</span><span class="chip">Vitest</span></div>
       </div>
 
+      <div class="proj reveal">
+        <div class="head">
+          <h3>Earworm</h3>
+          <span class="status">Building</span>
+        </div>
+        <p>A music meditation app, built on the premise that whatever song is stuck
+        in my head usually means something. Each entry pairs the song with whatever
+        it dragged up, and each month's reflections resolve into a word cloud of
+        what I kept returning to. It's built in React, TypeScript, and Vite, and
+        saves to the browser for now.
+        <a href="https://github.com/goatsaretasty/aurafocus">Source</a></p>
+        <div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Vite</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="creative" class="wrap">
+    <h2 class="reveal">Off the Clock</h2>
+    <div class="tiles">
+      <div class="tile reveal">
+        <h3>Photography</h3>
+        <p>I'm a photographer on the side, with a habit of noticing how an image gets
+        from the shutter to wherever it ends up.</p>
+      </div>
+      <div class="tile reveal">
+        <h3>Music</h3>
+        <p>I curate music. <a href="#projects">Earworm</a> is where I keep whatever
+        song has taken up residence in my head, and the Music Library Pipeline
+        is where I tame the rest of the collection.</p>
+      </div>
+      <div class="tile reveal">
+        <h3>Art</h3>
+        <p>I curate art, and chase anything that gives me frisson, whether it
+        arrives through a gallery wall, a film, or a song.</p>
+      </div>
     </div>
   </section>
 
   <section id="now" class="wrap">
-    <h2>Now</h2>
+    <h2 class="reveal">Now</h2>
     <div class="creed">
       <div class="reveal">
         <h3>At Cogstate</h3>
@@ -620,16 +760,23 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
     </div>
   </section>
 
+  <section id="cleared" class="wrap clearance">
+    <h2 class="reveal">Cleared Roles</h2>
+    <p class="reveal">I hold an active Secret clearance and am open to roles that
+    require one. <a href="mailto:hello@adesola.dev">Get in touch</a> and I'll send
+    the right résumé.</p>
+  </section>
+
   <section id="contact" class="wrap contact">
-    <h2>Get in Touch</h2>
+    <h2 class="reveal">Get in Touch</h2>
     <p class="reveal">
-      I'm looking for support and solutions engineering roles where the
-      customers are developers and the work spans troubleshooting, tooling, and
-      documentation. If that sounds like your team, I'd love to talk.
+      I'm looking for Solutions Engineering roles in observability, data, and
+      developer tools. If that sounds like your team, I'd love to talk.
     </p>
     <div class="actions">
       <a class="cta" href="mailto:hello@adesola.dev">hello@adesola.dev</a>
       <a class="cta secondary" href="https://www.linkedin.com/in/jadesina">Connect on LinkedIn</a>
+      <a class="cta secondary" href="assets/resume.pdf" download>Download resume</a>
     </div>
   </section>
 </main>
@@ -644,8 +791,7 @@ footer { padding: var(--s-2) 0 var(--s-3); font-size: 0.9rem; color: var(--faint
   var btn = document.getElementById("theme-btn");
   var saved = null;
   try { saved = localStorage.getItem("theme"); } catch (e) {}
-  var system = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  root.setAttribute("data-theme", saved || system);
+  root.setAttribute("data-theme", saved || "dark");
   btn.addEventListener("click", function () {
     var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
     root.setAttribute("data-theme", next);
